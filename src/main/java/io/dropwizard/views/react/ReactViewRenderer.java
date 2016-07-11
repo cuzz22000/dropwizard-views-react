@@ -6,7 +6,6 @@ import io.dropwizard.views.ViewRenderer;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
@@ -39,8 +38,6 @@ public abstract class ReactViewRenderer implements ViewRenderer {
     final JReact react = new JReact(true);
     react.addRequirePath("react-0.14");
     react.addRequirePath("react");
-    Map<String, Object> props = new HashMap<String, Object>();
-    props.put("text", "Hello World");
     OutputStreamWriter osw = new OutputStreamWriter(outputStream);
     final String result = react.renderToString("." + view.getTemplateName(), properties());
     osw.append(result);
