@@ -4,9 +4,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import io.dropwizard.views.react.ReactViewRenderer;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -20,7 +17,6 @@ import org.junit.Test;
 
 import com.codahale.metrics.MetricRegistry;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 
 public class ReactViewRenderTest extends JerseyTest {
 
@@ -40,16 +36,7 @@ public class ReactViewRenderTest extends JerseyTest {
   @Override
   protected Application configure() {
     ResourceConfig config = new ResourceConfig();
-    final ViewRenderer renderer = new ReactViewRenderer() {
-
-      @Override
-      protected ImmutableMap<String, Object> properties() {
-        final Map<String, Object> properties = new HashMap<>();
-        properties.put("text", MESSAGE);
-        return ImmutableMap.copyOf(properties);
-      }
-
-    };
+    final ViewRenderer renderer = new ReactViewRenderer();
     config.register(new ViewMessageBodyWriter(new MetricRegistry(), ImmutableList.of(renderer)));
     config.register(new TestResource());
     return config;
@@ -60,8 +47,8 @@ public class ReactViewRenderTest extends JerseyTest {
     final Response response = target("/test").request().get();
     final String txt = response.readEntity(String.class);
     assertThat(response.getStatus(), equalTo(200));
-    assertThat(txt.contains(MESSAGE), equalTo(true));
+    assertThat(txt.contains(TestView.MESSAGE), equalTo(true));
   }
 
-  private static final String MESSAGE = "Hello World!";
+
 }

@@ -6,4 +6,9 @@ public class TestView extends View {
     super("test.react");
   }
 
+  public String getMess() {
+    return MESSAGE;
+  }
+
+  public static final String MESSAGE = "Hello World!";
 }
