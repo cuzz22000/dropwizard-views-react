@@ -2,33 +2,30 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>io.dropwizard</groupId>
-		<artifactId>dropwizard-parent</artifactId>
-		<version>1.0.0-rc2</version>
-	</parent>
-
 	<groupId>org.cjwilson</groupId>
 	<artifactId>dropwizard-views-react</artifactId>
 	<name>Dropwizard React Views</name>
+	<version>0.9.3</version>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>io.dropwizard</groupId>
-				<artifactId>dropwizard-bom</artifactId>
-				<version>${project.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
 
+	</build>
 
 	<dependencies>
 		<dependency>
 			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-views</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>de.matrixweb</groupId>
@@ -38,6 +35,7 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.test-framework.providers</groupId>
 			<artifactId>jersey-test-framework-provider-inmemory</artifactId>
+			<version>2.22.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
