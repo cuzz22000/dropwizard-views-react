@@ -37,12 +37,11 @@ public class ReactViewRenderer implements ViewRenderer {
     react.addRequirePath("react-0.14");
     react.addRequirePath("react");
     final OutputStreamWriter osw = new OutputStreamWriter(outputStream);
-    final Map<String, Object> properties = new HashMap<>();
+    final Map<String, Object> properties = new HashMap<String, Object>();
     properties.put("view", view);
     final String result = react.renderToString("." + view.getTemplateName(), properties);
     osw.append(result);
     osw.close();
 
   }
-
 }
