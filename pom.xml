@@ -4,8 +4,24 @@
 
 	<groupId>org.cjwilson</groupId>
 	<artifactId>dropwizard-views-react</artifactId>
-	<name>Dropwizard React Views</name>
 	<version>0.9.3</version>
+	<packaging>jar</packaging>
+
+	<name>Dropwizard View React</name>
+	<description>Dropwizard view component for React</description>
+	<url>https://github.com/cuzz22000/dropwizard-views-react</url>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>reop</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/cuzz22000/dropwizard-views-react</url>
+	</scm>
 
 	<build>
 		<plugins>
