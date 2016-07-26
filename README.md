@@ -4,11 +4,40 @@ Implements a [React](https://facebook.github.io/react/) view component utilizing
 
 #### Maven Central
  TODO
+ 
 #### Usage
+
+Templates are resolved from the classpath where the templates directory root is `/react/. And path to templates match the view classes package structure.  
+
+```
+${project.root}
+ - src
+  - java
+   - ${package_path}
+    - YourView.java
+  - main
+  - resources
+   - react
+    - ${package_path}
+     - your-view.react
+```
+
+Example `${package_path}` paths for file and template files:
+
+```
+# class file
+org/example/dw/views/YourView.java
+
+# View Template
+org/example/dw/views/your-view.react
+
+```
+
 
 Simple Template.... way cooler stuff can be found @ [React](https://facebook.github.io/react/) 
 
-```react
+```javascript
+
 var React = require('react')
 
 
